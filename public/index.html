@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Danh sách nhân viên</h1>
+    <div id="button_block">
+        <button id="refreshBtn">Refresh</button>
+        <button id="viewEmployeeBtn">View Employee</button>
+    </div>
+    <table id="empTable">
+        <tr>
+            <th width="20%">ID nhân viên</th>
+            <th width="80%">Họ và tên</th>
+        </tr>
+    </table>
+    <div id="employee" style="display:none;">
+        <div id="employeeDetails"></div>
+        <button id="closeDetailsBtn">Close</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
