@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const employeeDetails = document.getElementById('employeeDetails');
     const closeDetailsBtn = document.getElementById('closeDetailsBtn');
     let selectedEmployee = null;
+    var emp_counter = 0;
 
     const fetchEmployees = async () => {
         try {
@@ -20,7 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const displayEmployees = (employees) => {
+        // Remove current data from table
+        for (let i = emp_counter; i > 0; i--) {
+            document.getElementById('empTable').deleteRow(i);
+        }
+        // Reset employee counter
+        emp_counter = 0;
+        // Add new data to table
         employees.forEach(employee => {
+            emp_counter += 1;
             const tr = document.createElement('tr');
             const td1 = document.createElement('td');
             const td2 = document.createElement('td');
@@ -29,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.addEventListener('click', () => {
-                // Xóa highlight nhân viên đang được chọn
+                // Remove highlight from previous employee
                 document.querySelectorAll('#empTable tr').forEach(tr => tr.classList.remove('highlighted'));
-                // Highlight nhân viên đang được chọn
+                // Highlight new employee
                 tr.classList.add('highlighted');
                 selectedEmployee = employee;
             })
@@ -40,20 +49,53 @@ document.addEventListener('DOMContentLoaded', () => {
             
     };
 
-    refreshBtn.addEventListener('click', fetchEmployees);
+    const refreshEmployees = async () => {
+        try {
+            const response = await fetch('/employees');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            displayEmployees(data);
+            alert("Refreshed!");
+        } catch (error) {
+            console.error('Error fetching employees:', error);
+        }
+    };
+
+    refreshBtn.addEventListener('click', refreshEmployees);
 
     viewEmployeeBtn.addEventListener('click', () => {
         if (selectedEmployee) {
             employeeDetails.innerHTML = `
-                <div id="details">
-                    <h2>${selectedEmployee.LAST_NAME} ${selectedEmployee.NAME}</h2>
-                    <p>Loại tài khoản: ${selectedEmployee.USER_TYPE}</p>
-                    <p>Giới tính: ${selectedEmployee.PERSONAL_GENDER}</p>
-                    <p>Ngày sinh: ${selectedEmployee.PERSONAL_BIRTHDAY}</p>
-                    <p>Email: ${selectedEmployee.EMAIL}</p>
-                    <p>Tài khoản đang hoạt động: ${selectedEmployee.ACTIVE}</p>
-                    <p>Lần đăng nhập cuối: ${selectedEmployee.LAST_LOGIN}</p>
-                </div>
+                <h2>${selectedEmployee.LAST_NAME} ${selectedEmployee.NAME}</h2>
+                <table id="detailsTable">
+                    <tr>
+                        <td width="25%">Loại tài khoản</th>
+                        <td width="75%">${selectedEmployee.USER_TYPE}</td>
+                    </tr>
+                    <tr>
+                        <td>Giới tính</th>
+                        <td>${selectedEmployee.PERSONAL_GENDER}</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh</th>
+                        <td>${selectedEmployee.PERSONAL_BIRTHDAY}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</th>
+                        <td>${selectedEmployee.EMAIL}</td>
+                    </tr>
+                    <tr>
+                        <td>Tài khoản đang hoạt động</th>
+                        <td>${selectedEmployee.ACTIVE}</td>
+                    </tr>
+                    <tr>
+                        <td>Lần đăng nhập cuối</th>
+                        <td>${selectedEmployee.LAST_LOGIN}</td>
+                    </tr>
+                    
+                </table>
             `;
             employee.style.display = 'block';
         } else {

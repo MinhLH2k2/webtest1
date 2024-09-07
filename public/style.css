@@ -10,17 +10,17 @@ h1 {
     text-align: center;
     color: #333;
     background-color: aqua;
+    border: #000 1px solid;
     border-radius: 5px;
 }
 
-table {
-    margin: 10px;
+#empTable {
     width: 100%;
     border: #000 1px solid;
     border-radius: 5px;
 }
 
-tr {
+#empTable tr {
     
     padding: 10px;
     background-color: rgb(231, 224, 210);
@@ -30,16 +30,16 @@ tr {
     transition-duration: 0.4s;
 }
 
-tr:hover {
-    background-color: rgb(255, 255, 130);
+#empTable tr:hover {
+    background-color: rgb(253, 253, 152);
     font-weight: bold;
 }
 
-tr.highlighted {
+#empTable tr.highlighted {
     background-color: yellow;
 }
 
-th {
+#empTable th {
     background-color: rgb(179, 255, 0);
     padding: 10px;
     border: 1px solid #000000;
@@ -47,7 +47,7 @@ th {
     margin-bottom: 5px;
 }
 
-td {
+#empTable td {
     cursor: pointer;
     padding: 10px;
     border: 1px solid #000000;
@@ -55,12 +55,8 @@ td {
     margin-bottom: 5px;
 }
 
-#employeeDetailsDialog {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    display: inline-block;
+#employeeDetails {
+    margin: 20px;
 }
 
 #button_block {
@@ -102,11 +98,40 @@ td {
 
 #employee {
     margin: 10px;
-    background-color: #e7e7e7;
     padding: 10px;
+    background-color: #e7e7e7;
     border: 1px solid #000;
     border-radius: 5px;
-    display: inline-block;
+}
+
+#employeeDetails {
+    margin: 10px;
+}
+
+#detailsTable {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#detailsTable tr {
+    padding: 10px;
+    background-color: rgb(231, 224, 210);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition-duration: 0.4s;
+}
+
+#detailsTable tr:hover {
+    background-color: rgb(253, 253, 152);
+    font-weight: bold;
+}
+
+#detailsTable td {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: #000 1px solid;
 }
 
 #closeDetailsBtn {
@@ -116,6 +141,11 @@ td {
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-    background-color: rgb(224, 184, 235);
+    background-color: rgb(227, 193, 236);
+    transition-duration: 0.4s;
+}
+
+#closeDetailsBtn:hover {
+    background-color: rgb(255, 139, 255);
 }
 
