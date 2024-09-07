@@ -28,7 +28,7 @@ app.get('/employees', async (req, res) => {
         }
 
         // Gọi API danh sách nhân viên
-        const employeeResponse = await fetch('https://b24-gch904.bitrix24.vn/rest/user.get?auth='+accessToken);
+        const employeeResponse = await fetch('https://b24-gch904.bitrix24.vn/rest/user.get.json?auth='+accessToken);
 
         if (!employeeResponse.ok) {
             throw new Error(`Employee API response error: ${employeeResponse.status} ${employeeResponse.statusText}`);
