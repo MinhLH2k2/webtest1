@@ -17,7 +17,6 @@ h1 {
 #empTable {
     width: 100%;
     border: #000 1px solid;
-    border-radius: 5px;
 }
 
 #empTable tr {
@@ -25,7 +24,6 @@ h1 {
     padding: 10px;
     background-color: rgb(231, 224, 210);
     border: 1px solid #000000;
-    border-radius: 5px;
     margin-bottom: 5px;
     transition-duration: 0.4s;
 }
@@ -43,7 +41,6 @@ h1 {
     background-color: rgb(179, 255, 0);
     padding: 10px;
     border: 1px solid #000000;
-    border-radius: 5px;
     margin-bottom: 5px;
 }
 
@@ -51,7 +48,6 @@ h1 {
     cursor: pointer;
     padding: 10px;
     border: 1px solid #000000;
-    border-radius: 5px;
     margin-bottom: 5px;
 }
 
@@ -111,25 +107,29 @@ h1 {
 #detailsTable {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
 }
 
 #detailsTable tr {
     padding: 10px;
     background-color: rgb(231, 224, 210);
-    border-radius: 5px;
     margin-bottom: 5px;
     transition-duration: 0.4s;
 }
 
-#detailsTable tr:hover {
+#detailsTable td:hover {
     background-color: rgb(253, 253, 152);
     font-weight: bold;
 }
 
+#detailsTable th {
+    background-color: rgb(179, 255, 0);
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+}
+
 #detailsTable td {
     padding: 10px;
-    border-radius: 5px;
     margin-bottom: 5px;
     border: #000 1px solid;
 }
@@ -141,6 +141,7 @@ h1 {
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
+    font-weight: bold;
     background-color: rgb(227, 193, 236);
     transition-duration: 0.4s;
 }
@@ -148,4 +149,3 @@ h1 {
 #closeDetailsBtn:hover {
     background-color: rgb(255, 139, 255);
 }
-

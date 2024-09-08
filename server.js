@@ -7,10 +7,11 @@ const PORT = 3000;
 app.use(cors({
     origin: '*',
 }))
+
 // Middleware để phục vụ các tệp tĩnh từ thư mục public
 app.use(express.static('public'));
 
-// Route để lấy danh sách nhân viên từ Bitrix24
+// Lấy danh sách nhân viên từ Bitrix24
 app.get('/employees', async (req, res) => {
     try {
         // Gọi API lấy token

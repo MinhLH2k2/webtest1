@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const data = await response.json();
             displayEmployees(data);
+            employee.style.display = 'none';
             alert("Refreshed!");
         } catch (error) {
             console.error('Error fetching employees:', error);
@@ -71,30 +72,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>${selectedEmployee.LAST_NAME} ${selectedEmployee.NAME}</h2>
                 <table id="detailsTable">
                     <tr>
-                        <td width="25%">Loại tài khoản</th>
+                        <th width="25%">Loại tài khoản</th>
                         <td width="75%">${selectedEmployee.USER_TYPE}</td>
                     </tr>
                     <tr>
-                        <td>Giới tính</th>
+                        <th>Giới tính</th>
                         <td>${selectedEmployee.PERSONAL_GENDER}</td>
                     </tr>
                     <tr>
-                        <td>Ngày sinh</th>
+                        <th>Ngày sinh</th>
                         <td>${selectedEmployee.PERSONAL_BIRTHDAY}</td>
                     </tr>
                     <tr>
-                        <td>Email</th>
+                        <th>Email</th>
                         <td>${selectedEmployee.EMAIL}</td>
                     </tr>
                     <tr>
-                        <td>Tài khoản đang hoạt động</th>
+                        <th>Tài khoản đang hoạt động</th>
                         <td>${selectedEmployee.ACTIVE}</td>
                     </tr>
                     <tr>
-                        <td>Lần đăng nhập cuối</th>
+                        <th>Lần đăng nhập cuối</th>
                         <td>${selectedEmployee.LAST_LOGIN}</td>
                     </tr>
-                    
+                    <tr>
+                        <th>Online</th>
+                        <td>${selectedEmployee.IS_ONLINE}</td>
+                    </tr>
                 </table>
             `;
             employee.style.display = 'block';
