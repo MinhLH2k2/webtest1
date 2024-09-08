@@ -33,10 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const tr = document.createElement('tr');
             const td1 = document.createElement('td');
             const td2 = document.createElement('td');
-            td1.textContent = employee.ID;
-            td2.textContent = employee.LAST_NAME + ' ' + employee.NAME;
+            const td3 = document.createElement('td');
+            td1.textContent = emp_counter;
+            td2.textContent = employee.ID;
+            td3.textContent = employee.LAST_NAME + ' ' + employee.NAME;
             tr.appendChild(td1);
             tr.appendChild(td2);
+            tr.appendChild(td3);
             tr.addEventListener('click', () => {
                 // Remove highlight from previous employee
                 document.querySelectorAll('#empTable tr').forEach(tr => tr.classList.remove('highlighted'));
@@ -72,9 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
             employeeDetails.innerHTML = `
                 <h2>${selectedEmployee.LAST_NAME} ${selectedEmployee.NAME}</h2>
                 <table id="detailsTable">
+                <tr>
+                        <th width="25%">ID</th>
+                        <td width="75%">${selectedEmployee.ID}</td>
+                    </tr>
                     <tr>
-                        <th width="25%">Loại tài khoản</th>
-                        <td width="75%">${selectedEmployee.USER_TYPE}</td>
+                        <th>Loại tài khoản</th>
+                        <td>${selectedEmployee.USER_TYPE}</td>
                     </tr>
                     <tr>
                         <th>Giới tính</th>
