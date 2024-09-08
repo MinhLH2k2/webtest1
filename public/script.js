@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             displayEmployees(data);
             employee.style.display = 'none';
+            selectedEmployee = null;
             alert("Refreshed!");
         } catch (error) {
             console.error('Error fetching employees:', error);
