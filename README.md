@@ -7,7 +7,7 @@ Bước 1 : Cài NodeJS (v20.17.0LTS)
  - Link tải xuống : https://nodejs.org/en/download/prebuilt-installer
 
 Bước 2 : Clone mã nguồn
- - Link mã nguồn  : https://github.com/toilaminh/webtest1.git
+ - Link mã nguồn  : https://github.com/MinhLH2k2/webtest1
 
 Bước 3 : Vào trong thư mục chứa mã nguồn đã clone về, mở Terminal/Shell tại thư mục này và nhập lệnh "node server.js"
 
